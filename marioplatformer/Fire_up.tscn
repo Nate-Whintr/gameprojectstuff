@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://wcr2hs5ltgqo"]
+
+[ext_resource type="Script" path="res://Fire_up.gd" id="1_ce20d"]
+[ext_resource type="Texture2D" uid="uid://5wrdk002sdor" path="res://Sprites/candy.png" id="2_ts3gv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bopdg"]
+size = Vector2(50, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ct3"]
+size = Vector2(45, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjfod"]
+size = Vector2(42, 37)
+
+[node name="Fire_up" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 9
+script = ExtResource("1_ce20d")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, -3)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_bopdg")
+
+[node name="PlayerColider" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, -1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/PlayerColider"]
+position = Vector2(1.5, -2.5)
+shape = SubResource("RectangleShape2D_14ct3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_ts3gv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_wjfod")
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/PlayerColider" to="CharacterBody2D" method="_on_player_colider_body_entered"]

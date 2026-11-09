@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfybh8cw6weo4"]
+
+[ext_resource type="Texture2D" uid="uid://d4ewa3d4mgxwo" path="res://Sprites/badguy.png" id="1_6qrhj"]
+[ext_resource type="Script" path="res://Enemy.gd" id="1_lxp8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oav5j"]
+size = Vector2(33, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu753"]
+size = Vector2(37, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b388x"]
+size = Vector2(33, 56)
+
+[node name="Enemy_sceme" type="Node2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_lxp8p")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("1_6qrhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" groups=["enemy"]]
+position = Vector2(-29.5, 2.5)
+shape = SubResource("RectangleShape2D_oav5j")
+
+[node name="WallDetector" type="Area2D" parent="Enemy"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/WallDetector"]
+position = Vector2(-29.5, 0.5)
+shape = SubResource("RectangleShape2D_hu753")
+
+[node name="PlayerColider" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/PlayerColider"]
+position = Vector2(-29.5, 2)
+shape = SubResource("RectangleShape2D_b388x")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemy"]
+
+[connection signal="body_entered" from="Enemy/WallDetector" to="Enemy" method="_on_wall_detector_body_entered"]
+[connection signal="body_entered" from="Enemy/PlayerColider" to="Enemy" method="_on_player_colider_body_entered"]
