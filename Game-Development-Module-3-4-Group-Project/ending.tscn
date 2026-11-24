@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dbfrg4tas81vs"]
+
+[ext_resource type="Script" uid="uid://cvf0icam76efa" path="res://ending.gd" id="1_fsb5k"]
+
+[sub_resource type="FontFile" id="FontFile_mduoy"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_ke0wg"]
+default_font = SubResource("FontFile_mduoy")
+default_font_size = 14
+
+[node name="Ending" type="CanvasLayer" unique_id=1062616394]
+script = ExtResource("1_fsb5k")
+
+[node name="Label" type="Label" parent="." unique_id=1263497764]
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 271.0
+offset_bottom = 133.0
+theme = SubResource("Theme_ke0wg")
+text = "You did it! The day is saved!
+You defeated all of the rats and broke
+ the spell!"
+
+[node name="Button" type="Button" parent="." unique_id=401481485]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 42.0
+offset_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

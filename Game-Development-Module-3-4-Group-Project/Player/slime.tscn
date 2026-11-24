@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bcjibrbv32rci"]
+
+[ext_resource type="Script" uid="uid://bmsgnyy1hjx1d" path="res://Player/slime.gd" id="1_25pqw"]
+[ext_resource type="Texture2D" uid="uid://b0bii1hhukk42" path="res://Player/littler_guy.png" id="1_qaxev"]
+[ext_resource type="PackedScene" uid="uid://b25tulbml0o3a" path="res://punch.tscn" id="2_1jqrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n322"]
+size = Vector2(16, 16)
+
+[node name="Slime" type="CharacterBody2D" unique_id=1832456091 groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_25pqw")
+punch_scene = ExtResource("2_1jqrc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1876962047 groups=["player"]]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_6n322")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1726322697]
+position = Vector2(8, -8)
+texture = ExtResource("1_qaxev")
+
+[node name="MoveCoolDown" type="Timer" parent="." unique_id=1684370924]
+wait_time = 0.2
+one_shot = true
+
+[node name="RayCast South" type="RayCast2D" parent="." unique_id=1527716392]
+position = Vector2(8, -8)
+target_position = Vector2(0, 16)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="RayCast West" type="RayCast2D" parent="." unique_id=1009753000]
+position = Vector2(8, -8)
+rotation = 1.5707964
+target_position = Vector2(0, 16)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="RayCast North" type="RayCast2D" parent="." unique_id=902905990]
+position = Vector2(8, -8)
+rotation = 3.1415927
+target_position = Vector2(0, 16)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="RayCast East" type="RayCast2D" parent="." unique_id=1053571671]
+position = Vector2(8, -8)
+rotation = 4.712389
+target_position = Vector2(0, 16)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="MarkerUP" type="Marker2D" parent="." unique_id=1806735985]
+position = Vector2(8, -24)
+
+[node name="MarkerDOWN" type="Marker2D" parent="." unique_id=1830869496]
+position = Vector2(8, 8)
+
+[node name="MarkerLEFT" type="Marker2D" parent="." unique_id=181386863]
+position = Vector2(-8, -8)
+
+[node name="MarkerRIGHT" type="Marker2D" parent="." unique_id=337368880]
+position = Vector2(24, -8)

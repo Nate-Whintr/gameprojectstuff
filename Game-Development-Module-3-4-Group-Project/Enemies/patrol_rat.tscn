@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbj3krotwws78"]
+
+[ext_resource type="Script" uid="uid://dr2cd0lwg6mi7" path="res://Enemies/patrol_rat_ai.gd" id="1_ai"]
+[ext_resource type="Texture2D" uid="uid://jh7yy4lqbi2g" path="res://Enemies/patrol_rat.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_patrol"]
+size = Vector2(12, 12)
+
+[node name="PatrolRat" type="CharacterBody2D" unique_id=713028587 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1988624242]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021645257 groups=["enemy"]]
+shape = SubResource("RectangleShape2D_patrol")

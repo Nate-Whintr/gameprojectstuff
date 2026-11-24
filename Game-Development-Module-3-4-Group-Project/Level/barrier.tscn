@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cwpu03th5acjy"]
+
+[ext_resource type="Script" uid="uid://biv1tlrm3lqmd" path="res://Level/barrier.gd" id="1_itdq6"]
+[ext_resource type="Texture2D" uid="uid://cjnq6s7aebsdm" path="res://Level/Barrier.png" id="2_xl6ec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp200"]
+size = Vector2(16, 16)
+
+[node name="Barrier" type="Area2D" unique_id=575945993]
+script = ExtResource("1_itdq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503592568]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_dp200")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1631589688]
+position = Vector2(8, -8)
+texture = ExtResource("2_xl6ec")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://chf2e0f7tohfj"]
+
+[ext_resource type="Script" uid="uid://b1ojsla3yff7f" path="res://Enemies/spear_rat_ai.gd" id="1_t6p0f"]
+[ext_resource type="Texture2D" uid="uid://dwbs2dtegsneq" path="res://Enemies/spear_rat.png" id="2_7oysn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(12, 12)
+
+[node name="SpearRat" type="CharacterBody2D" unique_id=1665605093 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_t6p0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441382063]
+texture = ExtResource("2_7oysn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=46750888 groups=["enemy"]]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="MoveCoolDown" type="Timer" parent="." unique_id=1349475180]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackCoolDown" type="Timer" parent="." unique_id=926437005]
+one_shot = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=805819895]

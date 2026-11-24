@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bc4pd0kaaulcv"]
+
+[ext_resource type="Texture2D" uid="uid://bkhytgjut85ic" path="res://NPCs/witch.png" id="1_08n5d"]
+[ext_resource type="Script" uid="uid://bxg2vx7itg6k1" path="res://witch.gd" id="2_bv18x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp200"]
+size = Vector2(16, 16)
+
+[node name="Witch" type="CharacterBody2D" unique_id=1181899105]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1889264805]
+texture = ExtResource("1_08n5d")
+script = ExtResource("2_bv18x")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=893401205]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1895510337]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ke0wg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1663532937]
+shape = SubResource("RectangleShape2D_dp200")
+
+[connection signal="body_entered" from="Area2D" to="Sprite2D" method="_on_area_2d_body_entered"]

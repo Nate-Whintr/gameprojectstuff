@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b25tulbml0o3a"]
+
+[ext_resource type="Texture2D" uid="uid://bw8tdmhguoeu4" path="res://Player/fist.png" id="1_hylu6"]
+[ext_resource type="Script" uid="uid://cawdfu14ny2e2" path="res://punch.gd" id="1_qquw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
+size = Vector2(17, 17)
+
+[node name="Punch" type="Node2D" unique_id=452351684]
+script = ExtResource("1_qquw1")
+
+[node name="Punch" type="Area2D" parent="." unique_id=344106344]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Punch" unique_id=1705330035]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ke0wg")
+
+[node name="Fist" type="Sprite2D" parent="Punch" unique_id=1742168321]
+texture = ExtResource("1_hylu6")
+
+[node name="Timer" type="Timer" parent="." unique_id=2025998157]
+
+[connection signal="body_entered" from="Punch" to="." method="_on_punch_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

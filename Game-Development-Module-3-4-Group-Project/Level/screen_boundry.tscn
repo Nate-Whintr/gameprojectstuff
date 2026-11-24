@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bjm4h2bgv2tdp"]
+
+[ext_resource type="Script" uid="uid://bjkskrk6m6mud" path="res://Level/boundry.gd" id="1_3ogbt"]
+
+[node name="Screen Boundry" type="Area2D" unique_id=598195697]
+script = ExtResource("1_3ogbt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
